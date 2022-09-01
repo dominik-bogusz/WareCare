@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WareCare"
         mc:Ignorable="d"
-        Title="AddProductWindow" Height="450" Width="800">
+        Title="Add product" Height="450" Width="400">
     <Grid>
-        
+        <StackPanel>
+            <TextBlock Margin="5">Name:</TextBlock>
+            <TextBox MaxLength="100"  x:Name="tbxName" Margin="5"></TextBox>
+            <TextBlock Margin="5">Brand:</TextBlock>
+            <ComboBox x:Name="cmbBrand" Margin="5"></ComboBox>
+            <TextBlock Margin="5">Description:</TextBlock>
+            <TextBox MaxLength="250" x:Name="tbxDescription" Height="190" Margin="5"></TextBox>
+        </StackPanel>
+        <Button VerticalAlignment="Bottom" Margin="5 5 210 5" Style="{StaticResource submitButton}">Submit</Button>
+        <Button VerticalAlignment="Bottom" Margin="210 5 5 5">Cancel</Button>
     </Grid>
 </Window>
