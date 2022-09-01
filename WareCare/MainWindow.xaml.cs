@@ -49,7 +49,8 @@ namespace WareCare
 
         private void Products_Click(object sender, RoutedEventArgs e)
         {
-            
+            ProductsWindow productsWindow = new ProductsWindow();
+            productsWindow.ShowDialog();
         }
 
         private void Brands_Click(object sender, RoutedEventArgs e)
