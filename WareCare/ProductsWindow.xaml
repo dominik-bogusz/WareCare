@@ -5,8 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WareCare"
         mc:Ignorable="d"
-        Title="ProductsWindow" Height="450" Width="800">
+        Title="Products" Height="600" Width="1000">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Button VerticalAlignment="Top" Margin="5 10 5 5">Add product</Button>
+        <Button VerticalAlignment="Top" Margin="5 40 5 5">Edit product</Button>
+        <Button VerticalAlignment="Top" Margin="5 70 5 5">Delete product</Button>
+        <Button VerticalAlignment="Top" Margin="5 160 5 5">Add to available</Button>
+        <Button VerticalAlignment="Bottom" Margin="5 5 5 10">Cancel</Button>
+        <DataGrid CanUserAddRows="false" x:Name="dgridProducts" Margin="10 10 10 10" Grid.Column="1" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding ID}" Header="ID" Width="50"></DataGridTextColumn>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding Name}" Header="Name" Width="200"></DataGridTextColumn>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding Brand}" Header="Brand" Width="200"></DataGridTextColumn>
+                <DataGridTextColumn IsReadOnly="True" Binding="{Binding Description}" Header="Description" Width="*"></DataGridTextColumn>
+            </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Edit product"></MenuItem>
+                    <MenuItem Header="Delete product"></MenuItem>
+                    <MenuItem Header="Add to available"></MenuItem>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </DataGrid>
     </Grid>
 </Window>
