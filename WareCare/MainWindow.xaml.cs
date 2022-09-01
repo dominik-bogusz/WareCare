@@ -97,7 +97,13 @@ namespace WareCare
 
         private void EditQuantity_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (dgridAvailability.SelectedItem != null)
+            {
+                EditQuantityWindow editQuantityWindow = new EditQuantityWindow();
+                Product productToEdit = (Product)dgridAvailability.SelectedItem;
+                editQuantityWindow.tbxQuantity.Text = productToEdit.Quantity.ToString();
+                editQuantityWindow.ShowDialog();
+            }
         }
 
         private void EditPrice_Click(object sender, RoutedEventArgs e)
