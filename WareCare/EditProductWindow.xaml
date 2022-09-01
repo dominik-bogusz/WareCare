@@ -5,8 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WareCare"
         mc:Ignorable="d"
-        Title="EditProductWindow" Height="450" Width="800">
+        Title="Edit product" Height="450" Width="400">
     <Grid>
-        
+        <StackPanel>
+            <TextBlock Margin="5">ID:</TextBlock>
+            <TextBox x:Name="tbxID" MaxLength="100" IsEnabled="False" Margin="5"></TextBox>
+            <TextBlock Margin="5">Name:</TextBlock>
+            <TextBox x:Name="tbxName" MaxLength="100" Margin="5"></TextBox>
+            <TextBlock Margin="5">Brand:</TextBlock>
+            <ComboBox x:Name="cmbBrand" Margin="5"></ComboBox>
+            <TextBlock Margin="5">Description:</TextBlock>
+            <TextBox x:Name="tbxDescription" Height="190" Margin="5"></TextBox>
+        </StackPanel>
+        <Button VerticalAlignment="Bottom" Margin="5 5 210 5" Style="{StaticResource submitButton}">Submit</Button>
+        <Button VerticalAlignment="Bottom" Margin="210 5 5 5">Cancel</Button>
     </Grid>
 </Window>
