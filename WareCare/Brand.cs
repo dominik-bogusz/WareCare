@@ -21,6 +21,5 @@ namespace WareCare
         /// nullable string <c>Name</c> refers to Brand Name in mysql db
         /// </summary>
         public string? Name { get; set; }
-
     }
 }
