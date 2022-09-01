@@ -82,7 +82,17 @@ namespace WareCare
 
         private void IncrementQuantity_Click(object sender, RoutedEventArgs e)
         {
-           
+            if (dgridAvailability.SelectedItem != null)
+            {
+                using (WareCareContext db = new WareCareContext(connectionString))
+                {
+                    Product selectedProduct = (Product)dgridAvailability.SelectedItem;
+                    var quantity = (from a in db.AvailableProducts where a.ProductID == selectedProduct.ID select a).FirstOrDefault();
+                    quantity.Quantity++;
+                    db.SaveChanges();
+                    dgridAvailability.Items.Refresh();
+                }
+            }
         }
 
         private void EditQuantity_Click(object sender, RoutedEventArgs e)
