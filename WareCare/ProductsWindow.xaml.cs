@@ -47,7 +47,8 @@ namespace WareCare
 
         private void EditProduct_Click(object sender, RoutedEventArgs e)
         {
-            
+            EditProductWindow editProductWindow = new EditProductWindow();
+            editProductWindow.ShowDialog();
         }
 
         private void DeleteProduct_Click(object sender, RoutedEventArgs e)
