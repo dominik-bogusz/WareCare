@@ -46,5 +46,20 @@ namespace WareCare
                 return products;
             }
         }
+
+        private void Products_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Brands_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Quit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -13,9 +13,9 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0">
-            <Button Margin="5 45 5 5" VerticalAlignment="Top">Products</Button>
-            <Button Margin="5 75 5 5" VerticalAlignment="Top">Brands</Button>
-            <Button Margin="5 5 5 10" VerticalAlignment="Bottom">Quit</Button>
+            <Button Click="Products_Click" Margin="5 45 5 5" VerticalAlignment="Top">Products</Button>
+            <Button Click="Brands_Click"  Margin="5 75 5 5" VerticalAlignment="Top">Brands</Button>
+            <Button Click="Quit_Click" Margin="5 5 5 10" VerticalAlignment="Bottom">Quit</Button>
         </Grid>
 
         <Grid Grid.Column="1">
