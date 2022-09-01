@@ -40,7 +40,8 @@ namespace WareCare
 
         private void AddProduct_Click(object sender, RoutedEventArgs e)
         {
-            
+            AddProductWindow addProductWindow = new AddProductWindow();
+            addProductWindow.ShowDialog();
         }
 
 
