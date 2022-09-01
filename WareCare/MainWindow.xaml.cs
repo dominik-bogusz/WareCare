@@ -108,7 +108,13 @@ namespace WareCare
 
         private void EditPrice_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (dgridAvailability.SelectedItem != null)
+            {
+                EditPriceWindow editPriceWindow = new EditPriceWindow();
+                Product productToEdit = (Product)dgridAvailability.SelectedItem;
+                editPriceWindow.tbxPrice.Text = productToEdit.Price.ToString();
+                editPriceWindow.ShowDialog();
+            }
         }
 
         private void DeleteFromAvailable_Click(object sender, RoutedEventArgs e)

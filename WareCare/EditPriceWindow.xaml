@@ -1,0 +1,17 @@
+﻿<Window x:Class="WareCare.EditPriceWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WareCare"
+        mc:Ignorable="d"
+        Title="Edit price" Height="165" Width="230">
+    <Grid>
+        <StackPanel Grid.ColumnSpan="2">
+            <TextBlock Margin="5">Enter price in format: 123,45:</TextBlock>
+            <TextBox MaxLength="8" PreviewTextInput="PreviewTextInputHandler" DataObject.Pasting="PastingHandler" Margin="5" x:Name="tbxPrice"></TextBox>
+            <Button Margin="5" Click="Submit_Click">Submit</Button>
+            <Button Margin="5" Click="Cancel_Click">Cancel</Button>
+        </StackPanel>
+    </Grid>
+</Window>

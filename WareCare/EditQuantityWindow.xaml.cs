@@ -51,7 +51,6 @@ namespace WareCare
                         {
                             MessageBox.Show("Invalid quantity format.");
                         }
-
                     }
                 }
             }
