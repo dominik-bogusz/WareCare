@@ -20,9 +20,31 @@ namespace WareCare
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// static string <c>connectionString</c> contains mysql db access path
+        /// </summary>
+        public static string connectionString = @"Data Source=DESKTOP-VC01PS3\SQLEXPRESS;Initial Catalog=WareCare;Integrated Security=True";
+
+        /// <summary>
+        /// constructor initializes <c>MainWindow</c> object
+        /// </summary>
+
         public MainWindow()
         {
             InitializeComponent();
+            dgridAvailability.ItemsSource = GetAvailableProducts();
+        }
+
+        private static List<Product> GetAvailableProducts()
+        {
+            using (WareCareContext db = new WareCareContext(connectionString))
+            {
+                var products = (from t1 in db.Products
+                                join t2 in db.AvailableProducts
+                                on t1.ID equals t2.ProductID
+                                select t1).ToList();
+                return products;
+            }
         }
     }
 }
