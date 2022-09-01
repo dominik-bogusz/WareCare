@@ -61,5 +61,43 @@ namespace WareCare
         {
             this.Close();
         }
+
+        private void DecrementQuantity_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgridAvailability.SelectedItem != null)
+            {
+                using (WareCareContext db = new WareCareContext(connectionString))
+                {
+                    Product selectedProduct = (Product)dgridAvailability.SelectedItem;
+                    var quantity = (from a in db.AvailableProducts where a.ProductID == selectedProduct.ID select a).FirstOrDefault();
+                    if (quantity.Quantity > 0)
+                    {
+                        quantity.Quantity--;
+                    }
+                    db.SaveChanges();
+                    dgridAvailability.Items.Refresh();
+                }
+            }
+        }
+
+        private void IncrementQuantity_Click(object sender, RoutedEventArgs e)
+        {
+           
+        }
+
+        private void EditQuantity_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void EditPrice_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void DeleteFromAvailable_Click(object sender, RoutedEventArgs e)
+        {
+           
+        }
     }
 }

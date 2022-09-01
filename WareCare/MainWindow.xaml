@@ -19,6 +19,12 @@
         </Grid>
 
         <Grid Grid.Column="1">
+            <TextBlock Margin="10 10 10 10">Available products:</TextBlock>
+            <Button Click="DecrementQuantity_Click" Margin="-500 10 10 10" Width="30" Height="25" VerticalAlignment="Top">-</Button>
+            <Button Click="IncrementQuantity_Click" Margin="-400 10 10 10" Width="30" Height="25" VerticalAlignment="Top">+</Button>
+            <Button Click="EditQuantity_Click" Margin="-200 10 10 10" Width="130" Height="25" VerticalAlignment="Top">Edit quantity</Button>
+            <Button Click="EditPrice_Click" Margin="100 10 10 10" Width="130" Height="25" VerticalAlignment="Top">Edit price</Button>
+            <Button Click="DeleteFromAvailable_Click" Margin="820 10 25 10" Width="130" Height="25" VerticalAlignment="Top">Delete from availabile</Button>
             <DataGrid CanUserAddRows="false" x:Name="dgridAvailability" Margin="10 45 10 10" AutoGenerateColumns="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn IsReadOnly="True" Binding="{Binding ID}" Header="ID" Width="50"></DataGridTextColumn>
@@ -28,8 +34,14 @@
                     <DataGridTextColumn IsReadOnly="True" Binding="{Binding Brand}" Header="Brand" Width="200"></DataGridTextColumn>
                     <DataGridTextColumn IsReadOnly="True" Binding="{Binding Description}" Header="Description" Width="*"></DataGridTextColumn>
                 </DataGrid.Columns>
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Edit quantity" Click="EditQuantity_Click"></MenuItem>
+                        <MenuItem Header="Edit price" Click="EditPrice_Click"></MenuItem>
+                        <MenuItem Header="Delete from available" Click="DeleteFromAvailable_Click"></MenuItem>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
             </DataGrid>
-
         </Grid>
     </Grid>
 </Window>
