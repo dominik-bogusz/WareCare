@@ -19,7 +19,6 @@ namespace WareCare
     /// </summary>
     public partial class ProductsWindow : Window
     {
-
         /// <summary>
         /// constructor initializes <c>ProductsWindow</c> object
         /// </summary>
@@ -42,13 +41,33 @@ namespace WareCare
         {
             AddProductWindow addProductWindow = new AddProductWindow();
             addProductWindow.ShowDialog();
+            dgridProducts.ItemsSource = GetProducts();
         }
-
 
         private void EditProduct_Click(object sender, RoutedEventArgs e)
         {
             EditProductWindow editProductWindow = new EditProductWindow();
-            editProductWindow.ShowDialog();
+            if (dgridProducts.SelectedItem != null)
+            {
+                try
+                {
+                    using (WareCareContext db = new WareCareContext(MainWindow.connectionString))
+                    {
+                        Product productToEdit = (Product)dgridProducts.SelectedItem;
+                        editProductWindow.tbxID.Text = productToEdit.ID.ToString();
+                        editProductWindow.tbxName.Text = productToEdit.Name.ToString();
+                        editProductWindow.cmbBrand.SelectedValue = productToEdit.Brand.ToString();
+                        editProductWindow.tbxDescription.Text = Convert.ToString(productToEdit.Description);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Select product to edit.");
+                }
+                editProductWindow.ShowDialog();
+                dgridProducts.ItemsSource = GetProducts();
+            }
+
         }
 
         private void DeleteProduct_Click(object sender, RoutedEventArgs e)
@@ -101,5 +120,6 @@ namespace WareCare
         {
             this.Close();
         }
+
     }
 }
