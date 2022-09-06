@@ -7,4 +7,4 @@ The application allows you to manage the stock of goods in the warehouse
 2. Install using \WareCare_Project\debug\WareCare_Project.msi
 3. Run the program
 
-![plot](./img/login.png)
+![plot](/img/login.png)
