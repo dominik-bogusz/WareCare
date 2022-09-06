@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WareCare"
         mc:Ignorable="d"
-        Title="EditBrandWindow" Height="450" Width="800">
+        Title="Edit brand" Height="170" Width="400">
     <Grid>
-        
+        <StackPanel>
+            <TextBlock Margin="5">ID:</TextBlock>
+            <TextBox IsEnabled="False" MaxLength="100" x:Name="tbxID" Margin="5"></TextBox>
+            <TextBlock Margin="5">Name:</TextBlock>
+            <TextBox MaxLength="100" x:Name="tbxName" Margin="5"></TextBox>
+        </StackPanel>
+        <Button VerticalAlignment="Bottom" Margin="5 5 210 5" Style="{StaticResource submitButton}">Submit</Button>
+        <Button VerticalAlignment="Bottom" Margin="210 5 5 5">Cancel</Button>
     </Grid>
 </Window>
