@@ -74,7 +74,27 @@ namespace WareCare
 
         private void AddToAvailable_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (dgridProducts.SelectedItem != null)
+            {
+                try
+                {
+                    using (WareCareContext db = new WareCareContext(MainWindow.connectionString))
+                    {
+                        Product productToAvailable = (Product)dgridProducts.SelectedItem;
+                        AvailableProduct available = new AvailableProduct();
+                        available.ProductID = productToAvailable.ID;
+                        available.Quantity = 0;
+                        available.Price = 0;
+                        db.Add(available);
+                        db.SaveChanges();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Product already is in available products.");
+                }
+                dgridProducts.ItemsSource = GetProducts();
+            }
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
