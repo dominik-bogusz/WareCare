@@ -53,7 +53,23 @@ namespace WareCare
 
         private void DeleteProduct_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (dgridProducts.SelectedItem != null)
+            {
+                try
+                {
+                    using (WareCareContext db = new WareCareContext(MainWindow.connectionString))
+                    {
+                        Product productToDelete = (Product)dgridProducts.SelectedItem;
+                        db.Remove(productToDelete);
+                        db.SaveChanges();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("You need to delete product from available products first.");
+                }
+                dgridProducts.ItemsSource = GetProducts();
+            }
         }
 
         private void AddToAvailable_Click(object sender, RoutedEventArgs e)
