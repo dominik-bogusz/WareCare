@@ -15,13 +15,46 @@ using System.Windows.Shapes;
 namespace WareCare
 {
     /// <summary>
-    /// Logika interakcji dla klasy EditBrandWindow.xaml
+    /// Interaction logic for EditBrandWindow.xaml
     /// </summary>
     public partial class EditBrandWindow : Window
     {
+
+        /// <summary>
+        /// constructor initializees <c>EditBrandWindow</c> object
+        /// </summary>
         public EditBrandWindow()
         {
             InitializeComponent();
         }
+
+        private void Submit_Click(object sender, RoutedEventArgs e)
+        {
+            using (WareCareContext db = new WareCareContext(MainWindow.connectionString))
+            {
+                if (!String.IsNullOrWhiteSpace(tbxName.Text))
+                {
+                    try
+                    {
+                        Brand brandToEdit = (from b in db.Brands where b.ID == Int32.Parse(tbxID.Text) select b).FirstOrDefault();
+                        brandToEdit.Name = tbxName.Text;
+                        db.Update(brandToEdit);
+                        db.SaveChanges();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Invalid input.");
+                    }
+                    this.Close();
+                }
+            }
+
+        }
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+
     }
 }
