@@ -11,7 +11,7 @@
             <TextBlock Margin="5">Name:</TextBlock>
             <TextBox MaxLength="100"  x:Name="tbxName" Margin="5"></TextBox>
         </StackPanel>
-        <Button VerticalAlignment="Bottom" Margin="5 5 210 5" Style="{StaticResource submitButton}">Submit</Button>
-        <Button VerticalAlignment="Bottom" Margin="210 5 5 5">Cancel</Button>
+        <Button Click="Submit_Click" VerticalAlignment="Bottom" Margin="5 5 210 5" Style="{StaticResource submitButton}">Submit</Button>
+        <Button Click="Cancel_Click" VerticalAlignment="Bottom" Margin="210 5 5 5">Cancel</Button>
     </Grid>
 </Window>

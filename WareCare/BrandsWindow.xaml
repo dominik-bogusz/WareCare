@@ -11,10 +11,10 @@
             <ColumnDefinition Width="150"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Button VerticalAlignment="Top" Margin="5 10 5 5">Add brand</Button>
+        <Button Click="AddBrand_Click" VerticalAlignment="Top" Margin="5 10 5 5">Add brand</Button>
         <Button VerticalAlignment="Top" Margin="5 40 5 5">Edit brand</Button>
         <Button VerticalAlignment="Top" Margin="5 70 5 5">Delete brand</Button>
-        <Button VerticalAlignment="Bottom" Margin="5 5 5 10">Cancel</Button>
+        <Button Click="Cancel_Click" VerticalAlignment="Bottom" Margin="5 5 5 10">Cancel</Button>
         <DataGrid CanUserAddRows="False" x:Name="dgridBrands" Grid.Column="1" Margin="10 10 10 10" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn IsReadOnly="True" Binding="{Binding ID}" Width="35" Header="ID"></DataGridTextColumn>
