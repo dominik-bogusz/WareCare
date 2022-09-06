@@ -43,9 +43,57 @@ namespace WareCare
             addBrandWindow.ShowDialog();
             dgridBrands.ItemsSource = GetBrands();
         }
+
+        private void EditBrand_Click(object sender, RoutedEventArgs e)
+        {
+            EditBrandWindow editBrandWindow = new EditBrandWindow();
+            if (dgridBrands.SelectedItem != null)
+            {
+                try
+                {
+                    using (WareCareContext db = new WareCareContext(MainWindow.connectionString))
+                    {
+                        Brand brandToEdit = (Brand)dgridBrands.SelectedItem;
+                        editBrandWindow.tbxID.Text = brandToEdit.ID.ToString();
+                        editBrandWindow.tbxName.Text = brandToEdit.Name.ToString();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Select brand to edit.");
+                }
+                editBrandWindow.ShowDialog();
+                dgridBrands.ItemsSource = GetBrands();
+            }
+
+        }
+
+        private void DeleteBrand_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgridBrands.SelectedItem != null)
+            {
+                try
+                {
+                    using (WareCareContext db = new WareCareContext(MainWindow.connectionString))
+                    {
+                        Brand brandToDelete = (Brand)dgridBrands.SelectedItem;
+                        db.Remove(brandToDelete);
+                        db.SaveChanges();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("You need to delete brand's products first.");
+                }
+
+            }
+            dgridBrands.ItemsSource = GetBrands();
+        }
+
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
+
     }
 }

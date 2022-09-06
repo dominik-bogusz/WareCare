@@ -12,8 +12,8 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Button Click="AddBrand_Click" VerticalAlignment="Top" Margin="5 10 5 5">Add brand</Button>
-        <Button VerticalAlignment="Top" Margin="5 40 5 5">Edit brand</Button>
-        <Button VerticalAlignment="Top" Margin="5 70 5 5">Delete brand</Button>
+        <Button Click="EditBrand_Click" VerticalAlignment="Top" Margin="5 40 5 5">Edit brand</Button>
+        <Button Click="DeleteBrand_Click" VerticalAlignment="Top" Margin="5 70 5 5">Delete brand</Button>
         <Button Click="Cancel_Click" VerticalAlignment="Bottom" Margin="5 5 5 10">Cancel</Button>
         <DataGrid CanUserAddRows="False" x:Name="dgridBrands" Grid.Column="1" Margin="10 10 10 10" AutoGenerateColumns="False">
             <DataGrid.Columns>
@@ -22,8 +22,8 @@
             </DataGrid.Columns>
             <DataGrid.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Header="Edit brand"></MenuItem>
-                    <MenuItem Header="Delete brand"></MenuItem>
+                    <MenuItem Header="Edit brand" Click="EditBrand_Click"></MenuItem>
+                    <MenuItem Header="Delete brand" Click="DeleteBrand_Click"></MenuItem>
                 </ContextMenu>
             </DataGrid.ContextMenu>
         </DataGrid>
