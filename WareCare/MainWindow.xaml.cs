@@ -51,12 +51,14 @@ namespace WareCare
         {
             ProductsWindow productsWindow = new ProductsWindow();
             productsWindow.ShowDialog();
+            dgridAvailability.ItemsSource = GetAvailableProducts();
         }
 
         private void Brands_Click(object sender, RoutedEventArgs e)
         {
             BrandsWindow brandsWindow = new BrandsWindow();
             brandsWindow.ShowDialog();
+            dgridAvailability.ItemsSource = GetAvailableProducts();
         }
 
         private void Quit_Click(object sender, RoutedEventArgs e)
