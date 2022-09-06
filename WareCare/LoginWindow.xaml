@@ -1,0 +1,23 @@
+﻿<Window x:Class="WareCare.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WareCare"
+        mc:Ignorable="d"
+        Title="Login to WareCare" Height="250" Width="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel VerticalAlignment="Top" Margin="5,5,5,0" Grid.ColumnSpan="2">
+            <TextBlock Margin="5">Username:</TextBlock>
+            <TextBox x:Name="tbxUsername" Margin="5"></TextBox>
+            <TextBlock Margin="5">Password:</TextBlock>
+            <PasswordBox x:Name="pbxPassword" Margin="5"></PasswordBox>
+        </StackPanel>
+        <Button Click="Submit_Click" Margin="25 140 160 45" Grid.ColumnSpan="2">Submit</Button>
+        <Button Click="Cancel_Click" Margin="160 140 25 45" Grid.ColumnSpan="2">Cancel</Button>
+    </Grid>
+</Window>
