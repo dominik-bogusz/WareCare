@@ -31,7 +31,7 @@ namespace WareCare
 
         private void Submit_Click(object sender, RoutedEventArgs e)
         {
-            SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-VC01PS3\SQLEXPRESS;Initial Catalog=WareCare;Integrated Security=True");
+            SqlConnection sqlCon = new SqlConnection(MainWindow.connectionString);
             try
             {
                 if (sqlCon.State == System.Data.ConnectionState.Closed)
